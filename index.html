@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="main">
+        <div class="page">
+            <div class="first">
+                <div class="left-part">
+                    <h1>1. Wiggling Effect.</h1>
+                    <div class="effect-box-p">
+                        <div class="wigglingEffect"></div>
+                    </div>
+                </div>
+                <div class="right-part">
+                    <h1>Code:</h1>
+                    <p>
+                    <pre>
+              <code>
+                .wigglingEffect {
+                  width: 100px;
+                  height: 100px;
+                  background-color: #f00;
+                  animation: wiggling 1s infinite;
+                }
+
+                @keyframes wiggling {
+                  0% {
+                    transform: rotate(0deg);
+                  }
+                  25% {
+                    transform: rotate(5deg);
+                  }
+                  50% {
+                    transform: rotate(0deg);
+                  }
+                  75% {
+                    transform: rotate(-5deg);
+                  }
+                  100% {
+                    transform: rotate(0deg);
+                  }
+                }
+              </code>
+              <h1>gsap code: </h1>
+              <code>
+                gsap.to(".wigglingEffect ", {
+                    rotation: 10,
+                    duration: 0.2,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "power1.inOut",
+                  });
+                  
+              </code>
+            </pre>
+                    </p>
+                </div>
+            </div>
+            <div class="first">
+                <div class="left-part">
+                    <h1>2. Parallax Scroll Effect.</h1>
+                    <div class="effect-box-p">
+                        <div class="parallaxScrollEffect"></div>
+                    </div>
+                </div>
+                <div class="right-part">
+                    <h1>Code:</h1>
+                    <p>
+                    <pre>
+              <code>
+                gsap.registerPlugin(ScrollTrigger);
+                gsap.to(".parallaxScrollEffect", {
+                y: -200,
+                scrollTrigger: {
+                    trigger: ".parallaxScrollEffect",
+                    start: "top 70%",
+                    end: "top 30%",
+                    scrub: true,
+                },
+                });
+              </code>
+              <h1>gsap code: </h1>
+              <code>
+                gsap.to(".wigglingEffect ", {
+                    rotation: 10,
+                    duration: 0.2,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "power1.inOut",
+                  });
+                  
+              </code>
+            </pre>
+                    </p>
+                </div>
+            </div>
+          
+            <div class="first">
+                <div class="left-part">
+                    <h1>3. Typing Text Effect.</h1>
+                    <span>Text: "Hello GSAP!"</span>
+                    <div class="effect-box-p">
+                        <div class="typingTextEffect"></div>
+                    </div>
+                </div>
+                <div class="right-part">
+                    <h1>Code:</h1>
+                    <p>
+                    <pre>
+              <code>
+                const text = "Hello, GSAP!";
+                const el = document.querySelector(".typingTextEffect");
+                let charIndex = 0;
+                
+                function type() {
+                  if (charIndex < text.length) {
+                    el.textContent += text[charIndex++];
+                    setTimeout(type, 100);
+                  }
+                }
+                
+                setInterval(() => {
+                  el.textContent = "";
+                  charIndex = 0;
+                  type();
+                }, 2000);
+              </code>
+           
+            </pre>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="card-container">
+                <div class="card">
+                
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
+
